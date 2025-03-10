@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar NFT - Workshop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Criar NFT</h1>
+    </header>
+    <div class="container">
+        <h2>Crie Seu NFT</h2>
+        <p class="intro-text">Descubra suas habilidades e crie um NFT incrível!</p>
+        <p>Para este passo, é essencial que você já tenha explorado suas inteligências múltiplas no teste! Confirme que completou o teste para desbloquear as dicas incríveis de criação de NFTs.</p>
+        <label>
+            <input type="checkbox" id="confirmTest" onchange="toggleDicasButton()"> Já fiz o teste de inteligências
+        </label>
+        <button id="dicasButton" class="btn" onclick="goToDicas()" disabled aria-label="Ver as dicas de criação de NFT">🎨 Ver as Dicas</button>
+        <div id="message" class="message" role="alert" aria-live="polite"></div>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn back-btn" role="button" tabindex="0">↩ Voltar</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function toggleDicasButton() {
+            const confirmTest = document.getElementById("confirmTest");
+            const dicasButton = document.getElementById("dicasButton");
+            const message = document.getElementById("message");
+            dicasButton.disabled = !confirmTest.checked;
+            if (confirmTest.checked) {
+                message.innerText = ""; // Limpa a mensagem quando marcado
+            }
+            console.log("Checkbox state changed, checked:", confirmTest.checked); // Depuração
+        }
+
+        function goToDicas() {
+            const confirmTest = document.getElementById("confirmTest");
+            const message = document.getElementById("message");
+            console.log("Dicas button clicked, checked:", confirmTest.checked); // Depuração
+            if (!confirmTest.checked) {
+                message.style.display = "block"; // Garante que o elemento seja visível
+                message.innerText = "Por favor, confirme que você fez o teste de inteligências antes de prosseguir!";
+                message.style.opacity = "1"; // Força a visibilidade
+                return; // Impede o redirecionamento
+            }
+            window.location.href = "dicas-nft.html";
+        }
+
+        // Desativa temporariamente o script do Cloudflare para teste local
+        if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+            console.log("Desativando script do Cloudflare para ambiente local.");
+            const scripts = document.getElementsByTagName('script');
+            for (let script of scripts) {
+                if (script.innerHTML.includes('__CF$cv$params')) {
+                    script.remove();
+                    break;
+                }
+            }
+        }
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91b7122f1a21bfa8',t:'MTc0MTE1MTA1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <!-- Botão de Acessibilidade com Emoticon ♿ no canto superior direito -->
+    <button class="accessibility-btn" aria-label="Abrir menu de acessibilidade" onclick="toggleAccessibilityMenu()">♿</button>
+    <!-- Menu de Acessibilidade com Ativar/Desativar -->
+    <div class="accessibility-menu" id="accessibility-menu">
+        <ul>
+            <li><button onclick="toggleAccessibility('high-contrast', this)">Alto Contraste (Ativar/Desativar)</button></li>
+            <li><button onclick="toggleAccessibility('large-text', this)">Fonte Legível (Ativar/Desativar)</button></li>
+            <li><button onclick="increaseFontSize()">Aumentar Letra</button></li>
+            <li><button onclick="decreaseFontSize()">Diminuir Letra</button></li>
+            <li><button onclick="toggleAccessibility('distraction-free', this)">Tirar Distrações (Ativar/Desativar)</button></li>
+            <li><button onclick="toggleAccessibility('text-to-speech', this)">Leitura em Voz Alta (Ativar/Desativar)</button></li>
+        </ul>
+    </div>
+    <!-- Rodapé -->
+    <footer>
+        <p>Explore, crie e aprenda com o Workshop Tecnologia e Educação 5.0 – Conectando inovação e conhecimento! | Desenvolvido pela Equipe Santos | Contato: <a href="mailto:tecnologiaeeducacao@gmail.com">tecnologiaeeducacao@gmail.com</a></p>
+    </footer>
+</body>
+</html>
