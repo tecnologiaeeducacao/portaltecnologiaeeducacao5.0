@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Testador de Arquivo</h1>
-    </header>
+    <!-- O cabeçalho será injetado pelo script.js -->
     <div class="container">
         <h2>Teste seu Arquivo</h2>
         <p>Suba seu arquivo aqui pra ver se tá pronto pro NFT!</p>
@@ -18,6 +16,7 @@
         </label>
         <input type="file" id="fileInput" accept=".mp3,.wav,.png,.jpg,.jpeg,.mp4,.webm" onchange="checkFile()">
         <div id="fileFeedback" aria-live="polite"></div>
+        <button class="btn clear-btn" onclick="location.reload()" aria-label="Limpar conteúdo e recarregar a página" role="button">🗑️ Limpar Conteúdo</button>
         <div class="nav-buttons">
             <a href="index.html" class="btn back-btn" role="button" tabindex="0" aria-label="Voltar para a página inicial">↩ Voltar</a>
         </div>

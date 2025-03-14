@@ -1,3 +1,16 @@
+// Função para injetar o cabeçalho dinamicamente em todas as páginas
+function injectHeader() {
+    const existingHeader = document.querySelector('header');
+    if (!existingHeader) {
+        const header = document.createElement('header');
+        header.innerHTML = '<h1><a href="index.html" style="color: inherit; text-decoration: none;">Workshop Tecnologia e Educação 5.0</a></h1>';
+        document.body.insertBefore(header, document.body.firstChild);
+    }
+}
+
+// Chama a função ao carregar a página
+document.addEventListener('DOMContentLoaded', injectHeader);
+
 const questions = [
     { text: "Gosto de ler livros ou escrever histórias.", type: "linguística" },
     { text: "Sou bom em explicar coisas com palavras.", type: "linguística" },
