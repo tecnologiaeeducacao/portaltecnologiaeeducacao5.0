@@ -43,7 +43,7 @@ const questions = [
     { text: "Gosto de observar plantas ou animais.", type: "naturalista" },
     { text: "Reconheço padrões na natureza.", type: "naturalista" },
     { text: "Me sinto bem explorando o meio ambiente.", type: "naturalista" },
-    { text: "Classifico coisas (como coleções) com facilidade.", type: "naturalista" }
+    { text: "Classifico coleções da natureza, como folhas ou pedras, com facilidade.", type: "naturalista" }
 ];
 
 let chartInstance = null;
