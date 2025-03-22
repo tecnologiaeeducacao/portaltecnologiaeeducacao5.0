@@ -17,14 +17,18 @@
             <a href="criar-nft.html" class="btn step-btn" role="button" tabindex="0" aria-label="Passo 2: Crie seu NFT">🎨 Passo 2: Criar NFT</a>
             <a href="tutoriais.html" class="btn step-btn" role="button" tabindex="0" aria-label="Passo 3: Tutoriais de como transformar sua arte em NFT">📹 Passo 3: Tutoriais de Minting</a>
             <a href="final.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Acesse o formulário final">📋 Formulário Final</a>
-            <a href="testador.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Teste seu arquivo para NFT">📎 Testador de Arquivo</a>
-            <a href="conceitos.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Explore conceitos extras">📚 Conceitos Extras</a>
-            <a href="glossario.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Consultar o glossário de termos">📖 Glossário</a>
+            <button class="btn extra-btn" onclick="toggleExtras()">⭐ Extras</button>
+            <div class="extra-buttons">
+                <a href="testador.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Teste seu arquivo para NFT">📎 Testador de Arquivo</a>
+                <a href="conceitos.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Explore vídeos extras">📺 Vídeos Extras</a>
+                <a href="educacao5.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Saiba mais sobre Educação 5.0">🧠 Educação 5.0</a>
+                <a href="blockchain.html" class="btn extra-btn highlight-btn" role="button" tabindex="0" aria-label="Saiba mais sobre Blockchain">⛓️ Blockchain</a>
+                <a href="glossario.html" class="btn extra-btn" role="button" tabindex="0" aria-label="Consultar o glossário de termos">📖 Glossário</a>
+            </div>
         </nav>
     </div>
     <script src="script.js"></script>
     <script>
-        // Desativa temporariamente o script do Cloudflare para teste local
         if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
             console.log("Desativando script do Cloudflare para ambiente local.");
             const scripts = document.getElementsByTagName('script');
@@ -36,9 +40,7 @@
             }
         }
     </script>
-    <!-- Botão de Acessibilidade com Emoticon ♿ no canto superior direito -->
     <button class="accessibility-btn" aria-label="Abrir menu de acessibilidade" onclick="toggleAccessibilityMenu()">♿</button>
-    <!-- Menu de Acessibilidade com Ativar/Desativar -->
     <div class="accessibility-menu" id="accessibility-menu">
         <ul>
             <li><button onclick="toggleAccessibility('high-contrast', this)">Alto Contraste (Ativar/Desativar)</button></li>
@@ -49,7 +51,6 @@
             <li><button onclick="toggleAccessibility('text-to-speech', this)">Leitura em Voz Alta (Ativar/Desativar)</button></li>
         </ul>
     </div>
-    <!-- Rodapé -->
     <footer>
         <p>Explore, crie e aprenda com o Workshop Tecnologia e Educação 5.0 – Conectando inovação e conhecimento! | Desenvolvido pela Equipe Santos | Contato: <a href="mailto:tecnologiaeeducacao@gmail.com">tecnologiaeeducacao@gmail.com</a></p>
     </footer>

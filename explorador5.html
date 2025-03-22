@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador 5.0 – Construa Seu Caminho</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .section { margin: 20px 0; padding: 15px; background: rgba(45, 45, 68, 0.9); border-radius: 8px; }
+        .content { margin: 10px 0; }
+        .tech-item, .skill-item { padding: 10px; background: #c2410c; cursor: pointer; margin: 5px; border-radius: 5px; display: inline-block; }
+        .tech-item.active, .skill-item.active { background: #f97316; }
+        .reflection { margin-top: 10px; display: none; }
+        .reflection p { line-height: 1.6; }
+        .result-section { display: none; margin-top: 20px; background: rgba(30, 41, 59, 0.95); padding: 15px; border-radius: 8px; }
+        .panel { margin-top: 15px; }
+        .panel h4 { color: #f97316; }
+        textarea { width: 100%; height: 100px; margin: 5px 0; border-radius: 5px; padding: 10px; box-sizing: border-box; }
+        @media (max-width: 600px) {
+            .tech-item, .skill-item { width: 100%; box-sizing: border-box; }
+            textarea { height: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Explorador 5.0 – Construa Seu Caminho</h2>
+        <p>Aqui você vai mergulhar fundo nas tecnologias e habilidades da Educação 5.0. Clique em cada item, explore explicações detalhadas e reflita pra construir seu Painel de Habilidades personalizado!</p>
+
+        <!-- Seção 1: Tecnologias -->
+        <div class="section" id="tech-section">
+            <h3>Tecnologias da Educação 5.0</h3>
+            <p>Clique em cada tecnologia pra entender como ela está revolucionando a educação com exemplos reais e possibilidades práticas.</p>
+            <div class="content">
+                <div class="tech-item" data-tech="ia">Inteligência Artificial</div>
+                <div class="tech-item" data-tech="robotica">Robótica</div>
+                <div class="tech-item" data-tech="bigdata">Big Data</div>
+                <div class="tech-item" data-tech="ar">Realidade Aumentada</div>
+            </div>
+            <div class="reflection" id="tech-reflection">
+                <p id="tech-text"></p>
+                <textarea id="tech-response" placeholder="Como você usaria essa tecnologia na sua vida, estudos ou trabalho?"></textarea>
+                <button class="btn" onclick="saveTechReflection()">Salvar Reflexão</button>
+            </div>
+        </div>
+
+        <!-- Seção 2: Habilidades -->
+        <div class="section" id="skill-section">
+            <h3>Habilidades da Educação 5.0</h3>
+            <p>Clique nas habilidades pra explorar como elas te preparam pro futuro da educação e do trabalho, com exemplos práticos e reflexões.</p>
+            <div class="content">
+                <div class="skill-item" data-skill="criatividade">Criatividade</div>
+                <div class="skill-item" data-skill="empatia">Empatia</div>
+                <div class="skill-item" data-skill="pensamento">Pensamento Crítico</div>
+                <div class="skill-item" data-skill="colaboracao">Colaboração</div>
+                <div class="skill-item" data-skill="resolucao">Resolução de Problemas</div>
+                <div class="skill-item" data-skill="etica">Ética</div>
+            </div>
+            <div class="reflection" id="skill-reflection">
+                <p id="skill-text"></p>
+                <textarea id="skill-response" placeholder="Onde você já usa essa habilidade ou como poderia desenvolvê-la?"></textarea>
+                <button class="btn" onclick="saveSkillReflection()">Salvar Reflexão</button>
+            </div>
+        </div>
+
+        <!-- Seção 3: Aplicação -->
+        <div class="section" id="apply-section">
+            <h3>Aplicando a Educação 5.0</h3>
+            <p>Combine uma tecnologia e uma habilidade pra criar uma solução prática e inovadora pro mundo real.</p>
+            <div class="content">
+                <select id="apply-tech">
+                    <option value="">Escolha uma tecnologia</option>
+                    <option value="ia">Inteligência Artificial</option>
+                    <option value="robotica">Robótica</option>
+                    <option value="bigdata">Big Data</option>
+                    <option value="ar">Realidade Aumentada</option>
+                </select>
+                <select id="apply-skill">
+                    <option value="">Escolha uma habilidade</option>
+                    <option value="criatividade">Criatividade</option>
+                    <option value="empatia">Empatia</option>
+                    <option value="pensamento">Pensamento Crítico</option>
+                    <option value="colaboracao">Colaboração</option>
+                    <option value="resolucao">Resolução de Problemas</option>
+                    <option value="etica">Ética</option>
+                </select>
+                <textarea id="apply-response" placeholder="Descreva como você usaria essa combinação pra resolver um problema ou melhorar algo na educação ou trabalho"></textarea>
+                <button class="btn" onclick="saveApplication()">Salvar Ideia</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="finishExploration()">Finalizar Exploração</button>
+        <div class="result-section" id="result">
+            <h3>Seu Painel de Habilidades 5.0</h3>
+            <div id="panel-techs" class="panel"></div>
+            <div id="panel-skills" class="panel"></div>
+            <div id="panel-apply" class="panel"></div>
+            <button class="share-btn" onclick="sharePanel()">Compartilhar</button>
+            <button class="btn" onclick="window.location.href='index.html'">Voltar ao Início</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let userProfile = { techs: {}, skills: {}, application: '' };
+
+        // Tecnologias
+        const techItems = document.querySelectorAll('.tech-item');
+        techItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const tech = item.getAttribute('data-tech');
+                item.classList.add('active');
+                showTechReflection(tech);
+            });
+        });
+
+        function showTechReflection(tech) {
+            const texts = {
+                ia: `A Inteligência Artificial (IA) é uma das bases da Educação 5.0, trazendo personalização e eficiência ao aprendizado. Ela usa algoritmos pra adaptar conteúdos ao ritmo de cada aluno, como plataformas que criam exercícios de matemática sob medida com base no desempenho. Além disso, chatbots alimentados por IA conversacional, como Grok, ChatGPT, DeepSeek e Meta AI, respondem dúvidas em tempo real, enquanto IA preditiva analisa dados pra prever dificuldades antes que elas aconteçam. Exemplos reais incluem ferramentas como o Duolingo, que ajusta lições de idiomas, e sistemas de universidades que identificam alunos em risco de evasão. A IA também pode criar materiais educativos, como textos ou vídeos, usando modelos generativos. Isso tudo reduz a carga dos professores e empodera os alunos.`,
+                robotica: `A Robótica transforma a educação ao trazer aprendizado prático e interativo. Na Educação 5.0, robôs são usados em salas de aula pra ensinar lógica e programação, como kits Lego Mindstorms que alunos montam e codificam pra resolver desafios, ou robôs assistentes que ajudam professores a explicar conceitos complexos, como o robô NAO em escolas japonesas. Ela desenvolve habilidades técnicas e incentiva a curiosidade, especialmente em áreas como STEM (ciência, tecnologia, engenharia e matemática). Além disso, a robótica prepara os alunos pro mercado de trabalho, onde a automação é crescente – pense em fábricas com robôs ou até cirurgias assistidas por máquinas. É aprendizado com as mãos na massa!`,
+                bigdata: `Big Data na Educação 5.0 usa grandes volumes de dados pra melhorar o ensino de forma estratégica. Ele coleta informações sobre notas, participação e até padrões de estudo pra personalizar o aprendizado – por exemplo, sistemas como o Google Classroom analisam o progresso e sugerem atividades extras. Escolas nos EUA já usam Big Data pra prever quais alunos podem desistir, oferecendo suporte antes que isso aconteça. Ele também ajuda professores a entender o que funciona em sala, ajustando métodos com base em evidências. Imagine uma escola que sabe exatamente onde cada aluno brilha ou precisa de ajuda – isso é Big Data em ação, tornando a educação mais justa e eficaz.`,
+                ar: `Realidade Aumentada (AR) leva o aprendizado a outro nível com experiências imersivas. Na Educação 5.0, ela permite que alunos "vivam" o conteúdo: visualizar o sistema solar em 3D com apps como o Google Expeditions, explorar o corpo humano camada por camada em aulas de biologia, ou até recriar batalhas históricas em tempo real. Escolas no Brasil já testam AR pra ensinar geografia, projetando mapas interativos. Ela estimula a memória visual e torna abstrato em concreto – pense em aprender física vendo forças em ação. A AR também prepara pra profissões futuras, como design ou medicina, onde simulações são chave. É educação que você pode tocar!`
+            };
+            document.getElementById('tech-text').textContent = texts[tech];
+            document.getElementById('tech-reflection').style.display = 'block';
+            document.getElementById('tech-response').dataset.tech = tech;
+        }
+
+        function saveTechReflection() {
+            const tech = document.getElementById('tech-response').dataset.tech;
+            const response = document.getElementById('tech-response').value;
+            if (response) {
+                userProfile.techs[tech] = response;
+                alert(`Reflexão salva! Você usaria ${tech} assim: "${response}"`);
+                document.getElementById('tech-reflection').style.display = 'none';
+                document.getElementById('tech-response').value = '';
+            } else {
+                alert('Escreva algo antes de salvar!');
+            }
+        }
+
+        // Habilidades
+        const skillItems = document.querySelectorAll('.skill-item');
+        skillItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const skill = item.getAttribute('data-skill');
+                item.classList.add('active');
+                showSkillReflection(skill);
+            });
+        });
+
+        function showSkillReflection(skill) {
+            const texts = {
+                criatividade: `Criatividade na Educação 5.0 é a habilidade de pensar fora da caixa e inventar soluções inovadoras. Ela vai além de arte – é criar um aplicativo pra resolver um problema escolar, como um app que organiza tarefas em grupo, ou desenvolver métodos novos de ensino, como aulas que misturam música e matemática. Empresas como Google valorizam isso pra inovação constante, e na educação ela permite que alunos e professores co-criem o aprendizado. Por exemplo, um aluno criativo pode propor um projeto de sustentabilidade usando tecnologia. É a faísca que transforma ideias em ação, essencial num mundo que muda rápido.`,
+                empatia: `Empatia é a capacidade de se colocar no lugar do outro, e na Educação 5.0 ela é vital pra criar ambientes colaborativos e inclusivos. Um professor empático entende as dificuldades de um aluno tímido e adapta a aula, enquanto um colega empático ajuda a resolver conflitos em trabalhos em grupo. No mundo do trabalho, líderes empáticos criam equipes mais unidas – pense em uma empresa que usa feedbacks sensíveis pra melhorar. Na educação, ela também guia o uso ético da tecnologia, como proteger dados dos alunos. É o que conecta pessoas num mundo digitalizado.`,
+                pensamento: `Pensamento Crítico na Educação 5.0 é analisar, questionar e tomar decisões baseadas em evidências. Um aluno com essa habilidade avalia se uma informação online é confiável antes de usá-la num trabalho, ou um professor decide qual tecnologia realmente ajuda em sala. No mercado, é essencial pra resolver problemas complexos – imagine um engenheiro escolhendo entre duas soluções pra um robô. Ele também evita "fake news" e ajuda a usar Big Data com inteligência. É o filtro que separa o útil do inútil num mar de informações.`,
+                colaboracao: `Colaboração é trabalhar junto pra alcançar algo maior, e na Educação 5.0 ela brilha em projetos interdisciplinares. Alunos colaboram pra criar um robô em equipe, combinando programação e design, ou professores de diferentes matérias planejam aulas integradas. No trabalho, é o que faz times globais funcionarem via plataformas como o Microsoft Teams. Na educação, ela usa tecnologia pra conectar pessoas – pense em um intercâmbio virtual entre escolas de países diferentes. É a força que multiplica ideias e resultados.`,
+                resolucao: `Resolução de Problemas é encontrar respostas práticas pros desafios, e na Educação 5.0 ela une tecnologia e criatividade. Um aluno pode usar IA pra otimizar o estudo pra uma prova, ou um professor planeja com Big Data como ajudar quem tá atrasado. No mundo real, é criar uma startup que resolve falta de acesso à educação em áreas remotas, como plataformas online no interior do Brasil. Ela exige testar, errar e ajustar – pense em um engenheiro consertando um robô com falha. É o motor da inovação prática.`,
+                etica: `Ética na Educação 5.0 é usar tecnologia com responsabilidade, garantindo justiça e respeito. Um exemplo é proteger a privacidade dos dados dos alunos em sistemas de Big Data, ou usar IA sem discriminar grupos. No trabalho, é criar produtos tech que beneficiem a todos, como apps acessíveis pra deficientes. Na educação, ela ensina a questionar: "Isso é justo? É seguro?". Pense em escolas que rejeitam ferramentas invasivas pra priorizar o bem-estar. É o guia moral que mantém a tecnologia humana e sustentável.`
+            };
+            document.getElementById('skill-text').textContent = texts[skill];
+            document.getElementById('skill-reflection').style.display = 'block';
+            document.getElementById('skill-response').dataset.skill = skill;
+        }
+
+        function saveSkillReflection() {
+            const skill = document.getElementById('skill-response').dataset.skill;
+            const response = document.getElementById('skill-response').value;
+            if (response) {
+                userProfile.skills[skill] = response;
+                alert(`Reflexão salva! Você usa ${skill} assim: "${response}"`);
+                document.getElementById('skill-reflection').style.display = 'none';
+                document.getElementById('skill-response').value = '';
+            } else {
+                alert('Escreva algo antes de salvar!');
+            }
+        }
+
+        // Aplicação
+        function saveApplication() {
+            const tech = document.getElementById('apply-tech').value;
+            const skill = document.getElementById('apply-skill').value;
+            const response = document.getElementById('apply-response').value;
+            if (tech && skill && response) {
+                userProfile.application = `Tecnologia: ${tech} | Habilidade: ${skill} | Ideia: ${response}`;
+                alert(`Ideia salva! Sua solução: "${response}" com ${tech} e ${skill}.`);
+                document.getElementById('apply-response').value = '';
+            } else {
+                alert('Escolha uma tecnologia, uma habilidade e escreva sua ideia!');
+            }
+        }
+
+        // Finalização
+        function finishExploration() {
+            document.querySelector('.container > button').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+
+            let techContent = '<h4>Tecnologias Exploradas</h4>';
+            for (let tech in userProfile.techs) {
+                techContent += `<p><strong>${tech}:</strong> ${userProfile.techs[tech]}</p>`;
+            }
+            if (!Object.keys(userProfile.techs).length) techContent += '<p>Você ainda não explorou nenhuma tecnologia!</p>';
+
+            let skillContent = '<h4>Habilidades Descobertas</h4>';
+            for (let skill in userProfile.skills) {
+                skillContent += `<p><strong>${skill}:</strong> ${userProfile.skills[skill]}</p>`;
+            }
+            if (!Object.keys(userProfile.skills).length) skillContent += '<p>Você ainda não explorou nenhuma habilidade!</p>';
+
+            let applyContent = '<h4>Sua Aplicação 5.0</h4>';
+            applyContent += userProfile.application ? `<p>${userProfile.application}</p>` : '<p>Crie uma solução antes de finalizar!</p>';
+
+            document.getElementById('panel-techs').innerHTML = techContent;
+            document.getElementById('panel-skills').innerHTML = skillContent;
+            document.getElementById('panel-apply').innerHTML = applyContent;
+        }
+
+        // Compartilhar
+        function sharePanel() {
+            const techsText = Object.entries(userProfile.techs).map(([tech, resp]) => `${tech}: ${resp}`).join('\n');
+            const skillsText = Object.entries(userProfile.skills).map(([skill, resp]) => `${skill}: ${resp}`).join('\n');
+            const applyText = userProfile.application || 'Nenhuma aplicação criada ainda.';
+            const shareText = `Meu Painel de Habilidades 5.0\n\nTecnologias Exploradas:\n${techsText || 'Nenhuma'}\n\nHabilidades Descobertas:\n${skillsText || 'Nenhuma'}\n\nAplicação 5.0:\n${applyText}\n\nConstruído no Explorador 5.0 - Workshop Tecnologia e Educação 5.0`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meu Painel de Habilidades 5.0',
+                    text: shareText,
+                    url: window.location.href
+                }).catch(err => console.log('Erro ao compartilhar:', err));
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Painel copiado para a área de transferência! Cole onde quiser.');
+                }).catch(err => {
+                    alert('Erro ao copiar: ' + err);
+                });
+            }
+        }
+    </script>
+    <footer>
+        <p>Desenvolvido pela Equipe Santos | Contato: <a href="mailto:tecnologiaeeducacao@gmail.com">tecnologiaeeducacao@gmail.com</a></p>
+    </footer>
+</body>
+</html>

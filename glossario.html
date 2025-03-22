@@ -5,28 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glossário - Workshop Tecnologia e Educação 5.0</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .highlight-exact {
+            border: 2px solid #ea580c; /* Borda laranja mantida */
+            background-color: #f97316; /* Fundo laranja escuro */
+            color: #ffffff; /* Texto branco pra combinar com os botões */
+            order: -1; /* Mantém no topo */
+        }
+        .highlight-exact h3, .highlight-exact p, .highlight-exact a {
+            color: #ffffff; /* Força o texto e links dentro do destaque a serem brancos */
+        }
+    </style>
 </head>
 <body>
-    <!-- O cabeçalho será injetado pelo script.js -->
     <div class="container">
         <h2>Glossário de Termos</h2>
         <p class="intro-note">Explore os conceitos usados no Workshop Tecnologia e Educação 5.0!</p>
         
-        <!-- Campo de Busca -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Digite um termo para buscar..." aria-label="Buscar termos no glossário">
         </div>
 
-        <!-- Lista de Termos -->
-        <div class="glossary-list" id="glossaryList">
+        <div class="glossary-list" id="glossaryList" style="display: flex; flex-direction: column;">
+            <div class="glossary-item">
+                <h3>Algoritmos</h3>
+                <p>Sequências de instruções ou passos que computadores seguem para resolver problemas ou executar tarefas, como personalizar exercícios em plataformas de ensino com inteligência artificial. Apesar de parecer matemático ou complicado, é como uma "receita" que máquinas seguem.</p>
+                <p><a href="https://www.techtarget.com/whatis/definition/algorithm" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Apps (Aplicativos / dApps)</h3>
+                <p>Abreviação de "aplicativos", refere-se a programas de software executados em dispositivos eletrônicos. No contexto do blockchain, como no Ethereum, inclui "dApps" (aplicativos descentralizados), que operam em redes públicas sem controle central, oferecendo serviços como finanças, jogos ou educação (ex.: BitDegree). Diferem de aplicativos tradicionais por sua transparência e resistência a censura.</p>
+                <p><a href="https://www.attri.com.br/blog/o-que-e-um-aplicativo/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Badge</h3>
+                <p>Palavra em inglês que significa "emblema" ou "insígnia", usada em contextos digitais como NFTs para representar conquistas ou certificados. Não é comum no dia a dia de quem não joga videogames ou usa plataformas de certificação online.</p>
+                <p><a href="https://www.estudiosite.com.br/glossario/badge" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Big Data</h3>
+                <p>Termo em inglês que descreve grandes quantidades de dados coletados e analisados para encontrar padrões, como prever dificuldades de alunos ou ajustar métodos de ensino. Junta "grande" (big) e "dados" (data), mas pode soar estranho pra quem não sabe o que significa.</p>
+                <p><a href="https://www.salesforce.com/br/blog/big-data/" target="_blank">Saiba mais</a></p>
+            </div>
             <div class="glossary-item">
                 <h3>Binance</h3>
                 <p>Plataforma digital de câmbio e armazenamento de criptomoedas, fundada em 2017, que permite transações financeiras descentralizadas e integração com redes blockchain, como a Polygon, para aquisição de moedas digitais (ex.: MATIC).</p>
                 <p><a href="https://www.binance.com/pt-BR/about" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Bitcoin</h3>
+                <p>Primeira criptomoeda descentralizada, criada em 2008 por Satoshi Nakamoto, que usa blockchain para permitir transações seguras e globais sem bancos ou intermediários. Parece uma moeda física, mas é totalmente digital.</p>
+                <p><a href="https://bitcoin.org/pt_BR/bitcoin-para-individuos" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>BitDegree</h3>
+                <p>Plataforma online de educação lançada em 2017, focada em ensinar tecnologia e habilidades digitais, como blockchain, criptomoedas e programação. Utiliza tokens como incentivos para recompensar alunos por completar cursos ou missões, integrando gamificação ao aprendizado Web3.</p>
+                <p><a href="http://bitdegree.org/guilds/bitdegree/explore-the-buzz-around-trump-meme-coins" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Blockcerts</h3>
+                <p>Iniciativa do MIT que usa blockchain para emitir certificados digitais imutáveis, garantindo autenticidade e segurança a documentos educacionais desde 2017. É um nome técnico que novatos podem não conhecer.</p>
+                <p><a href="https://www.blockcerts.org/guide/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Blockchain</h3>
-                <p>Tecnologia de registro distribuído que utiliza uma cadeia de blocos criptografados para armazenar dados de forma imutável e descentralizada, sendo a base para autenticação e rastreabilidade de ativos digitais como NFTs.</p>
+                <p>Tecnologia de registro distribuído que utiliza uma cadeia de blocos criptografados para armazenar dados de forma imutável e descentralizada, sendo a base para autenticação e rastreabilidade de ativos digitais como NFTs. O nome em inglês ("cadeia de blocos") reflete sua estrutura.</p>
                 <p><a href="https://www.ibm.com/br-pt/topics/what-is-blockchain" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
@@ -35,14 +78,74 @@
                 <p><a href="https://www.canva.com/pt_br/about/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Chatbots</h3>
+                <p>Programas de computador que simulam conversas humanas, usados em plataformas educacionais para responder dúvidas em tempo real, como Grok, ChatGPT ou Meta AI. O nome em inglês ("robôs de conversa") descreve sua função.</p>
+                <p><a href="https://www.institutoqualibest.com/marketing/o-que-e-chatbot-e-como-ele-influencia-na-experiencia-do-cliente/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Código aberto</h3>
+                <p>Software ou tecnologia cujo código pode ser visto, usado e modificado por qualquer pessoa gratuitamente, como o blockchain em muitos projetos educacionais. É um conceito técnico que significa "compartilhado livremente".</p>
+                <p><a href="https://www.redhat.com/pt-br/topics/open-source/what-is-open-source" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Collage</h3>
                 <p>Técnica artística de origem francesa (do verbo "coller", colar), que consiste na composição de imagens ou elementos visuais diversos em uma única obra, frequentemente aplicada na criação de NFTs visuais. Em português, "colagem".</p>
                 <p><a href="https://www.canva.com/create/photo-collages/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Colaboração</h3>
+                <p>Ato de trabalhar junto com outras pessoas ou tecnologias para alcançar um objetivo, como usar ferramentas digitais em projetos educacionais. Aqui, tem um sentido técnico de integração com tecnologia.</p>
+                <p><a href="https://blog.webex.com/pt-br/collaboration/o-que-e-colaboracao/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Competências</h3>
+                <p>Habilidades ou capacidades que alguém desenvolve, como as socioemocionais e técnicas destacadas na Educação 5.0. Pode soar formal, mas significa o que você sabe fazer bem.</p>
+                <p><a href="https://www.significados.com.br/competencia/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Contratos Inteligentes</h3>
+                <p>Códigos registrados em blockchain que executam acordos automaticamente quando condições são cumpridas, como matrículas ou pagamentos, sem necessidade de intermediários. O termo junta "contratos" com "inteligentes" pra indicar automação.</p>
+                <p><a href="https://www.coinbase.com/pt-br/learn/crypto-basics/what-is-a-smart-contract" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Crackers</h3>
+                <p>Termo em inglês para pessoas que invadem sistemas digitais com intenções maliciosas, diferente de "hackers", que podem ter fins éticos; blockchain protege contra eles. Não tem relação com "biscoito"!</p>
+                <p><a href="https://www.tecmundo.com.br/o-que-e/744-o-que-e-cracker-.htm" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Criptografia</h3>
+                <p>Técnica de codificar informações para protegê-las, usada no blockchain para garantir que dados sejam seguros e só acessíveis por quem tem a chave correta. Parece complicado, mas é só um jeito de "esconder" dados.</p>
+                <p><a href="https://www.kaspersky.com.br/resource-center/definitions/encryption" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Criptomoedas</h3>
-                <p>Moedas digitais ou virtuais protegidas por criptografia, operando em redes descentralizadas como blockchains, usadas como meio de troca ou investimento (ex.: Bitcoin, Ethereum, MATIC).</p>
+                <p>Moedas digitais ou virtuais protegidas por criptografia, operando em redes descentralizadas como blockchains, usadas como meio de troca ou investimento (ex.: Bitcoin, Ethereum, MATIC). "Cripto" vem de "escondido", mas são moedas modernas.</p>
                 <p><a href="https://www.kaspersky.com.br/resource-center/definitions/what-is-cryptocurrency" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Crowdfunding</h3>
+                <p>Termo em inglês para "financiamento coletivo", método de arrecadar dinheiro online com muitas pessoas, usado em DeFi para apoiar projetos educacionais ou sociais. É como uma "vaquinha" digital.</p>
+                <p><a href="https://sebrae.com.br/sites/PortalSebrae/artigos/artigoshome/entenda-o-que-e-crowdfunding,8a733374edc2f410VgnVCM1000004c00210aRCRD" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Currículos</h3>
+                <p>Neste contexto, refere-se a planos de aula ou conteúdos educacionais adaptados por tecnologias como big data, não apenas ao "resumo profissional" que a palavra geralmente significa.</p>
+                <p><a href="https://institutoayrtonsenna.org.br/qual-o-papel-do-curriculo-escolar-no-ambiente-educacional/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Dai</h3>
+                <p>Criptomoeda descentralizada criada pela MakerDAO, atrelada ao valor do dólar para manter estabilidade, usada em finanças descentralizadas (DeFi). Parece um nome qualquer, mas é uma moeda digital.</p>
+                <p><a href="https://coinext.com.br/criptomoedas/dai" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Decentralização</h3>
+                <p>Modelo em que o controle não fica com uma única autoridade, mas é distribuído entre muitos participantes, como no blockchain, eliminando intermediários. Significa "sem chefe central".</p>
+                <p><a href="https://aws.amazon.com/pt/web3/decentralization-in-blockchain/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>DeFi</h3>
+                <p>Acrônimo em inglês para "Finanças Descentralizadas", serviços financeiros (empréstimos, investimentos) oferecidos via blockchain sem bancos tradicionais. É uma abreviação que novatos podem achar confusa.</p>
+                <p><a href="https://www.coinbase.com/pt-br/learn/crypto-basics/what-is-defi" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>Design</h3>
@@ -60,9 +163,34 @@
                 <p><a href="https://revistaeducacao.com.br/2023/10/27/educacao-5-0-sala-de-aula/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Ethereum</h3>
+                <p>Plataforma blockchain lançada em 2015 por Vitalik Buterin, que suporta criptomoedas (Ether) e contratos inteligentes, amplamente usada para criar NFTs e aplicativos descentralizados.</p>
+                <p><a href="https://ethereum.org/en/what-is-ethereum/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Escalabilidade</h3>
+                <p>Capacidade de um sistema, como o blockchain, crescer e suportar mais usuários ou transações sem perder eficiência, um desafio técnico no uso em larga escala. Significa "crescer bem".</p>
+                <p><a href="https://gestaoclick.com.br/blog/escalabilidade/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Evidências</h3>
+                <p>Informações ou dados usados como base para tomar decisões, como no pensamento crítico ou análise de big data. Pode soar como "prova de crime", mas aqui é só "o que ajuda a decidir".</p>
+                <p><a href="https://sinagencias.org.br/o-uso-de-evidencias-a-governanca-de-dados-e-o-futuro-da-regulacao/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Faucet</h3>
                 <p>Termo inglês (literalmente "torneira") usado no contexto das criptomoedas para designar serviços ou plataformas que distribuem pequenas quantias de moedas digitais gratuitamente, como MATIC na rede Polygon, para fins educacionais ou experimentais.</p>
                 <p><a href="https://www.mynt.com.br/academy/guia-para-iniciantes/faucet-cripto/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Feedbacks</h3>
+                <p>Termo em inglês que significa "respostas" ou "retornos", usado em tecnologia para descrever informações que ajudam a melhorar algo, como em interações com empatia ou IA.</p>
+                <p><a href="https://mereo.com/blog/feedback-nas-empresas/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Finanças</h3>
+                <p>Gestão de dinheiro, que no contexto do blockchain e DeFi se refere a serviços financeiros digitais sem bancos tradicionais, como empréstimos ou investimentos com criptomoedas.</p>
+                <p><a href="https://www.fm2s.com.br/blog/financas" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>Frames of Mind</h3>
@@ -70,9 +198,44 @@
                 <p><a href="https://www2.ufrb.edu.br/reverso/voce-conhece-a-teoria-das-inteligencias-multiplas/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Guardtime (KIKS.ee)</h3>
+                <p>Empresa estoniana fundada em 2007 que desenvolve soluções baseadas em blockchain para autenticação segura de dados, como documentos digitais e registros de identidade. Seu principal produto, o KSI (Keyless Signature Infrastructure), é usado pelo governo da Estônia desde 2008 para garantir a integridade de serviços digitais, como identidade digital e saúde.</p>
+                <p><a href="https://guardtime.com/about" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Harvard</h3>
                 <p>Instituição acadêmica de renome mundial, fundada em 1636 nos Estados Unidos, onde Howard Gardner atua como professor e pesquisador, desenvolvendo estudos sobre psicologia e educação.</p>
                 <p><a href="https://www.harvard.edu/about" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Hash</h3>
+                <p>Código único gerado por criptografia (ex.: SHA-256) que funciona como uma "impressão digital" de um bloco no blockchain, garantindo sua segurança e integridade. Não é comida, é um termo técnico!</p>
+                <p><a href="https://www.kaspersky.com.br/blog/hash-o-que-sao-e-como-funcionam/2773/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Hiperconectada</h3>
+                <p>Termo moderno que descreve uma sociedade ou ambiente onde tudo está muito conectado por tecnologia, como na Educação 5.0, com internet e dispositivos por toda parte.</p>
+                <p><a href="https://blog.lyceum.com.br/hiperconectividade-2/#:~:text=Ela%20se%20refere%20ao%20fato,redes%20sociais%20o%20tempo%20todo." target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Identidade Digital</h3>
+                <p>Conjunto de informações que representam uma pessoa ou entidade no mundo online, protegido por blockchain em algumas vertentes. Parece um "nome virtual".</p>
+                <p><a href="https://www.iberdrola.com/inovacao/identidade-digital" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Imutabilidade</h3>
+                <p>Propriedade do blockchain que impede a alteração de dados após serem registrados, garantindo confiabilidade e proteção contra fraudes. Significa "que não muda".</p>
+                <p><a href="https://academy.binance.com/en/glossary/immutability" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Inclusão Digital</h3>
+                <p>Processo de garantir acesso e uso de tecnologias digitais a todos, como levar educação online a áreas remotas, muitas vezes apoiado por blockchain. Junta "inclusão" com "digital".</p>
+                <p><a href="https://fia.com.br/blog/inclusao-digital/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Inovação</h3>
+                <p>Criação ou uso de ideias e tecnologias novas para melhorar algo, como aplicar blockchain e IA na educação. Aqui, é sobre "coisas novas com tecnologia".</p>
+                <p><a href="https://sebrae.com.br/sites/PortalSebrae/ufs/sp/licitacao_uf/o-que-e-inovacao-descubra-seu-conceito-tipos-e-muito-mais,1184cfe7f0c83410VgnVCM1000001b00320aRCRD" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>InShot</h3>
@@ -85,6 +248,26 @@
                 <p><a href="https://pnl.com.br/a-teoria-das-multiplas-inteligencias/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Intermediários</h3>
+                <p>Pessoas ou instituições que ficam "no meio" de uma transação, como bancos ou cartórios, que o blockchain elimina ao conectar diretamente as partes envolvidas.</p>
+                <p><a href="https://br.bitdegree.org/crypto/aprender/dicionario-cripto/o-que-e-intermediario" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Internet</h3>
+                <p>Rede mundial de computadores que conecta pessoas e informações, base para tecnologias como blockchain, IA e NFTs. Essencial hoje, mas desconhecida pra quem nunca usou.</p>
+                <p><a href="https://brasilescola.uol.com.br/informatica/internet.htm" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>JICA</h3>
+                <p>Sigla da Agência de Cooperação Internacional do Japão, que promove projetos como Society 5.0, usando tecnologia para o bem comum. É uma organização pouco conhecida aqui.</p>
+                <p><a href="https://www.jica.go.jp/portuguese/overseas/brazil/index.html" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Larga escala</h3>
+                <p>Expressão que significa "em grande quantidade" ou "muito grande", usada para descrever o desafio de expandir tecnologias como blockchain para muitos usuários.</p>
+                <p><a href="https://www.dictionary.com/browse/large-scale" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Layout</h3>
                 <p>Termo inglês que designa a disposição estruturada de elementos visuais em uma composição, como textos, imagens e gráficos, essencial na criação de narrativas digitais ou NFTs.</p>
                 <p><a href="https://www.significados.com.br/layout/" target="_blank">Saiba mais</a></p>
@@ -95,9 +278,29 @@
                 <p><a href="https://www.soundtrap.com/content-hub/what-is-a-loop-in-music" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>MakerDAO</h3>
+                <p>Projeto descentralizado que criou a criptomoeda Dai, funcionando no blockchain Ethereum para oferecer serviços financeiros estáveis. É um nome técnico que não explica muito sozinho.</p>
+                <p><a href="https://corporatefinanceinstitute.com/resources/cryptocurrency/what-is-makerdao-and-dai/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>MATIC</h3>
+                <p>Criptomoeda nativa da rede Polygon, uma solução de escalabilidade para o Ethereum, usada para reduzir custos e aumentar a velocidade de transações como as de NFTs.</p>
+                <p><a href="https://polygon.technology/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Meta AI</h3>
+                <p>Modelo de inteligência artificial desenvolvido pela Meta, usado em assistentes virtuais e ferramentas como o WhatsApp, competindo com chatbots como Grok e ChatGPT.</p>
+                <p><a href="https://ai.meta.com/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Metamask</h3>
                 <p>Carteira digital baseada em blockchain, lançada em 2016, que funciona como extensão de navegadores ou aplicativo, permitindo o gerenciamento de criptomoedas e interação com plataformas como OpenSea.</p>
                 <p><a href="https://metamask.io/about/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Mineração</h3>
+                <p>Processo no blockchain em que computadores validam transações resolvendo cálculos complexos, consumindo energia e garantindo a segurança da rede. Não é "tirar pedra", é "confirmar dados".</p>
+                <p><a href="https://www.infomoney.com.br/guias/mineracao-de-criptomoedas/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>Mintagem</h3>
@@ -110,13 +313,23 @@
                 <p><a href="https://guiadehospedagem.com.br/glossario/o-que-e-mintagem-processo-de-criacao/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>MIT</h3>
+                <p>Sigla do Massachusetts Institute of Technology, uma universidade americana famosa que desenvolveu projetos como Blockcerts. Parece aleatório pra quem não conhece.</p>
+                <p><a href="https://www.mit.edu/about/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>NFT</h3>
-                <p>Acrônimo de "Non-Fungible Token" (Token Não Fungível), um tipo de ativo digital único, autenticado por blockchain, que representa propriedade exclusiva de conteúdos como artes, músicas ou vídeos.</p>
-                <p><a href="https://www.coinbase.com/learn/crypto-basics/what-are-nfts" target="_blank">Saiba mais</a></p>
+                <p>Sigla em inglês para "Token Não Fungível", um ativo digital único registrado em blockchain, como obras de arte ou certificados, que não pode ser trocado por outro igual.</p>
+                <p><a href="https://www.kaspersky.com.br/resource-center/definitions/what-is-an-nft" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Nós</h3>
+                <p>Termo técnico no blockchain que se refere aos computadores conectados em uma rede descentralizada, responsáveis por validar e armazenar dados. Não é "laço", é "participante da rede".</p>
+                <p><a href="https://inovapromos.com.br/glossario/o-que-e-no-de-rede-importancia/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>OpenSea</h3>
-                <p>Marketplace digital fundado em 2017, baseado em blockchain, que facilita a criação, compra e venda de NFTs, integrando-se a carteiras como Metamask e redes como Polygon.</p>
+                <p>Maior marketplace de NFTs do mundo, lançado em 2017, baseado no blockchain Ethereum, onde usuários compram, vendem e criam tokens não fungíveis.</p>
                 <p><a href="https://opensea.io/about" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
@@ -140,9 +353,19 @@
                 <p><a href="https://www.photopea.com/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Plataforma</h3>
+                <p>Ambientes digitais ou sistemas que suportam serviços ou aplicativos, como Google Classroom para ensino ou OpenSea para NFTs. É como um "lugar virtual" pra fazer coisas.</p>
+                <p><a href="https://www.techtarget.com/whatis/definition/platform" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Polygon</h3>
                 <p>Rede blockchain de camada 2 integrada ao Ethereum, lançada em 2017 como Matic Network, que otimiza transações de NFTs com baixo custo e alta velocidade.</p>
                 <p><a href="https://polygon.technology/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Programação</h3>
+                <p>Processo de criar instruções (códigos) para computadores executarem tarefas, como ensinar robôs ou desenvolver contratos inteligentes. Não é de TV, é "dar ordens pra máquinas".</p>
+                <p><a href="https://tripleten.com.br/blog/o-que-e-programacao-e-como-ela-funciona/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>QI</h3>
@@ -150,14 +373,109 @@
                 <p><a href="https://www.apa.org/topics/intelligence/testing" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Querubim</h3>
+                <p>A Revista Querubim é uma iniciativa que põe em circulação trabalhos de estudantes e professores, buscando aprofundar investigações nas áreas de Letras, Ciências Humanas e Ciências Sociais, sendo mencionada no contexto do workshop como exemplo de produção acadêmica.</p>
+                <p><a href="https://periodicos.uff.br/querubim" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Realidade Aumentada (AR)</h3>
+                <p>Tecnologia que sobrepõe elementos digitais ao mundo real, como mapas 3D em aulas, usando dispositivos como celulares ou óculos especiais. Parece ficção, mas é real!</p>
+                <p><a href="https://www.sap.com/brazil/products/scm/industry-4-0/what-is-augmented-reality.html" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Registros</h3>
+                <p>Anotações ou dados guardados de forma segura, como no blockchain, que mantém um histórico imutável de transações ou informações.</p>
+                <p><a href="https://escolalbk.com.br/glossario/o-que-e-registro-computacao/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Robótica</h3>
+                <p>Área da tecnologia que desenvolve robôs para tarefas práticas, como ensinar lógica em salas de aula ou automatizar processos no trabalho.</p>
+                <p><a href="https://querobolsa.com.br/revista/o-que-e-robotica" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Satoshi Nakamoto</h3>
+                <p>Nome ou pseudônimo do criador do Bitcoin, que em 2008 lançou a primeira criptomoeda descentralizada. É uma figura misteriosa na história da tecnologia.</p>
+                <p><a href="https://www.investopedia.com/terms/s/satoshi-nakamoto.asp" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Segurança</h3>
+                <p>Proteção contra ameaças, no contexto do blockchain significa manter dados e transações a salvo de ataques ou fraudes, usando criptografia e descentralização.</p>
+                <p><a href="https://www.kaspersky.com.br/resource-center/definitions/what-is-cyber-security" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Servidores</h3>
+                <p>Computadores poderosos que armazenam e gerenciam dados na internet ou em redes, usados no blockchain para manter a rede funcionando. Não é "quem serve comida"!</p>
+                <p><a href="https://querobolsa.com.br/revista/o-que-e-um-servidor" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>SHA-256</h3>
+                <p>Tipo de algoritmo de criptografia usado no blockchain para criar hashs, garantindo que cada bloco tenha uma identificação única e segura. Parece código secreto, mas é só matemática.</p>
+                <p><a href="https://academy.bit2me.com/pt/sha256-algoritmo-bitcoin/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Society 5.0</h3>
+                <p>Conceito japonês de uma sociedade futura que usa tecnologias como IA e blockchain para melhorar a vida, integrando inovação com bem-estar humano.</p>
+                <p><a href="https://www8.cao.go.jp/cstp/english/society5_0/index.html" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Solidity</h3>
+                <p>Linguagem de programação usada no Ethereum para criar contratos inteligentes, permitindo acordos digitais automáticos e seguros.</p>
+                <p><a href="https://soliditylang.org/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Startup</h3>
+                <p>Termo em inglês para empresas novas, geralmente de tecnologia, focadas em resolver problemas de forma inovadora, como as que usam blockchain ou IA.</p>
+                <p><a href="https://sebrae.com.br/sites/PortalSebrae/artigos/o-que-e-uma-startup,6979b2a178c83410VgnVCM1000003b74010aRCRD" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>STEM</h3>
+                <p>Sigla em inglês para Ciência, Tecnologia, Engenharia e Matemática, áreas promovidas na educação com robótica e outras tecnologias.</p>
+                <p><a href="https://www.educamaisbrasil.com.br/educacao/noticias/o-que-significa-stem-e-por-que-isso-e-tao-importante" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>Stop-motion</h3>
                 <p>Técnica de animação que utiliza sequências de fotografias de objetos físicos em posições ligeiramente alteradas para criar a ilusão de movimento, aplicável na produção de NFTs animados.</p>
                 <p><a href="https://42filmes.com.br/2022/04/21/stop-motion-o-que-e-e-como-fazer/" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
+                <h3>Tech</h3>
+                <p>Abreviação em inglês de "tecnologia", usada informalmente para se referir a ferramentas e sistemas digitais, como IA ou blockchain.</p>
+                <p><a href="https://comandogeek.com.br/blog/glossario/o-que-e-tech/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
                 <h3>TinkerCAD</h3>
                 <p>Plataforma online de modelagem 3D, lançada em 2011 pela Autodesk, que permite a criação de objetos tridimensionais digitais, úteis para projetos de NFTs interativos.</p>
                 <p><a href="https://www.tinkercad.com/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Timestamping</h3>
+                <p>Técnica em inglês ("carimbo de tempo") que registra a data e hora de um evento no blockchain, usada para proteger documentos digitais.</p>
+                <p><a href="https://renovainvest.com.br/blog/timestamping-no-blockchain-o-que-e-e-como-funciona/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Token</h3>
+                <p>Termo em inglês para uma unidade digital no blockchain que representa algo único (como um NFT) ou uma moeda (como Ether), funcionando como uma "ficha" ou "chave".</p>
+                <p><a href="https://www.coinbase.com/pt-br/learn/crypto-basics/what-is-a-token" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Transações</h3>
+                <p>Trocas de informações ou valores registradas no blockchain, como pagamentos com criptomoedas ou transferências de NFTs. É uma "troca digital".</p>
+                <p><a href="https://help.vtex.com/pt/tutorial/o-que-e-uma-transacao--36vMP5PES4oUWMWQuskIQ6" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Transparência</h3>
+                <p>Qualidade de ser claro e acessível, no blockchain significa que todos podem ver os dados registrados, garantindo confiança sem esconder nada.</p>
+                <p><a href="https://stefanini.com/pt-br/insights/artigos/transparencia-saiba-como-o-blockchain-pode-garantir-transacoes-mais-seguras-e-eficientes" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Trilema</h3>
+                <p>Conceito técnico no blockchain que descreve o desafio de equilibrar descentralização, segurança e escalabilidade, limitando o uso em larga escala. É como "três problemas juntos".</p>
+                <p><a href="https://www.coinbase.com/pt-br/learn/crypto-glossary/what-is-the-blockchain-trilemma" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>TWh/ano</h3>
+                <p>Sigla para "Terawatt-hora por ano", unidade de medida de energia que mostra o consumo anual, como o usado na mineração de Bitcoin (ex.: 204,5 TWh/ano). Parece complicado, mas é só uma medida grande.</p>
+                <p><a href="https://www.carboncollective.co/sustainable-investing/terawatt-hour-twh" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>Upload</h3>
@@ -168,6 +486,11 @@
                 <h3>Web 1.0</h3>
                 <p>Primeira geração da World Wide Web (década de 1990), caracterizada por páginas estáticas e unidirecionais, com interação limitada entre usuários e conteúdos.</p>
                 <p><a href="https://apdsi.pt/glossario/w/web10/" target="_blank">Saiba mais</a></p>
+            </div>
+            <div class="glossary-item">
+                <h3>Web 2.0</h3>
+                <p>Segunda geração da internet (década de 2000), marcada por interatividade, redes sociais e conteúdos gerados por usuários, como YouTube e Facebook.</p>
+                <p><a href="https://www.techtarget.com/whatis/definition/Web-20-or-Web-2" target="_blank">Saiba mais</a></p>
             </div>
             <div class="glossary-item">
                 <h3>Web 3.0</h3>
@@ -206,19 +529,50 @@
 
     <script src="script.js"></script>
     <script>
-        // Função de busca em tempo real
+        // Função de busca em tempo real com prioridade no título exato
         document.getElementById('searchInput').addEventListener('input', function() {
-            let filter = this.value.toLowerCase();
+            let filter = this.value.toLowerCase().trim();
             let items = document.getElementsByClassName('glossary-item');
+            
+            // Resetar todos os itens
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
+                items[i].classList.remove('highlight-exact');
+            }
+            
+            if (filter === '') {
+                // Mostrar todos os itens se o campo estiver vazio
+                for (let i = 0; i < items.length; i++) {
+                    items[i].style.display = '';
+                }
+                return;
+            }
+            
+            let exactItem = null;
+            let matchedItems = [];
+            
+            // Procurar correspondências
             for (let i = 0; i < items.length; i++) {
                 let term = items[i].getElementsByTagName('h3')[0].textContent.toLowerCase();
                 let definition = items[i].getElementsByTagName('p')[0].textContent.toLowerCase();
-                if (term.includes(filter) || definition.includes(filter)) {
-                    items[i].style.display = '';
-                } else {
-                    items[i].style.display = 'none';
+                
+                if (term === filter) {
+                    exactItem = items[i]; // Item com título exato
+                } else if (term.includes(filter) || definition.includes(filter)) {
+                    matchedItems.push(items[i]); // Outros itens com o termo
                 }
             }
+            
+            // Mostrar o item exato primeiro e destacar
+            if (exactItem) {
+                exactItem.style.display = '';
+                exactItem.classList.add('highlight-exact');
+            }
+            
+            // Mostrar os outros itens correspondentes
+            matchedItems.forEach(item => {
+                item.style.display = '';
+            });
         });
     </script>
 </body>

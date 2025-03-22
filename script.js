@@ -3,10 +3,43 @@ function injectHeader() {
     const existingHeader = document.querySelector('header');
     if (!existingHeader) {
         const header = document.createElement('header');
-        header.innerHTML = '<h1><a href="index.html" style="color: inherit; text-decoration: none;">Workshop Tecnologia e Educação 5.0</a></h1>';
+        header.innerHTML = `
+            <div class="header-content">
+                <button class="nav-toggle" onclick="toggleNavMenu()">Navegue</button>
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;">Workshop Tecnologia e Educação 5.0</a></h1>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html">Início</a>
+                    <a href="diagnostico.html">Formulário Diagnóstico</a>
+                    <a href="teste.html">Teste de Inteligências</a>
+                    <a href="criar-nft.html">Criar NFT</a>
+                    <a href="tutoriais.html">Tutoriais de Minting</a>
+                    <a href="final.html">Formulário Final</a>
+                    <a href="testador.html">Testador de Arquivo</a>
+                    <a href="conceitos.html">Vídeos Extras</a>
+                    <a href="educacao5.html">Descubra o que é Educação 5.0</a>
+                    <a href="blockchain.html">Descubra o que é Blockchain</a>
+                    <a href="glossario.html">Glossário</a>
+                </nav>
+            </div>
+        `;
         document.body.insertBefore(header, document.body.firstChild);
     }
 }
+
+// Função para abrir/fechar o menu de navegação
+function toggleNavMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Fecha o menu ao clicar fora dele
+document.addEventListener('click', function(event) {
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    if (navMenu.style.display === 'block' && !navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+        navMenu.style.display = 'none';
+    }
+});
 
 // Chama a função ao carregar a página
 document.addEventListener('DOMContentLoaded', injectHeader);
@@ -75,7 +108,6 @@ function submitQuiz() {
         "musical": 0, "interpessoal": 0, "intrapessoal": 0, "naturalista": 0
     };
 
-    // Calcula as pontuações
     questions.forEach((q, index) => {
         let selected = document.querySelector(`input[name="q${index}"]:checked`);
         if (selected) {
@@ -86,7 +118,6 @@ function submitQuiz() {
         }
     });
 
-    // Arredonda as pontuações para cima
     for (let type in userScores) {
         userScores[type] = Math.ceil(userScores[type]);
     }
@@ -98,10 +129,9 @@ function submitQuiz() {
     document.getElementById("quiz-section").style.display = "none";
     document.getElementById("result-section").style.display = "block";
 
-    // Filtra e ordena as inteligências para o gráfico
     let sortedScores = Object.entries(userScores)
-        .filter(([type, score]) => score >= 9) // Apenas para o gráfico, mostra >= 9
-        .sort((a, b) => b[1] - a[1]); // Ordem decrescente
+        .filter(([type, score]) => score >= 9)
+        .sort((a, b) => b[1] - a[1]);
 
     let labels = sortedScores.map(([type, score]) => type);
     let data = sortedScores.map(([type, score]) => score);
@@ -149,17 +179,13 @@ function submitQuiz() {
         }
     });
 
-    // Ordena todas as inteligências por pontuação (decrescente)
     let allScores = Object.entries(userScores).sort((a, b) => b[1] - a[1]);
-
-    // Separa inteligências com 20 pontos
     let topScores = allScores.filter(([type, score]) => score === 20);
     let mainScores = allScores.filter(([type, score]) => score >= 9 && score < 20);
     let exploreScores = allScores.filter(([type, score]) => score > 0 && score < 9);
 
     let resultText = "<h3>Parabéns, Explorador!</h3>";
 
-    // Se há inteligências com 20 pontos, destaca no topo
     if (topScores.length > 0) {
         resultText += `<p><strong>Fantástico! Estas são suas inteligências de maior impacto, a base para criar e inovar sem limites!</strong></p>`;
         topScores.forEach(([type, score]) => {
@@ -169,7 +195,6 @@ function submitQuiz() {
         });
     }
 
-    // Inteligências principais (>= 9 e < 20)
     if (mainScores.length > 0) {
         if (topScores.length > 0) {
             resultText += `<p><strong>Estas também são áreas onde você se destaca:</strong></p>`;
@@ -183,7 +208,6 @@ function submitQuiz() {
         });
     }
 
-    // Áreas para explorar (0 a 8 pontos)
     if (exploreScores.length > 0) {
         resultText += `<p><strong>Continue explorando! Estas inteligências também fazem parte do seu potencial e podem crescer ainda mais!</strong></p>`;
         exploreScores.forEach(([type, score]) => {
@@ -193,14 +217,12 @@ function submitQuiz() {
         });
     }
 
-    // Nota sobre subjetividade
     resultText += `<p><em>Nota: Este teste reflete sua percepção atual. Todas as inteligências podem ser desenvolvidas com prática!</em></p>`;
 
     document.getElementById("quiz-result").innerHTML = resultText || "<p>Erro ao calcular os resultados. Tente novamente!</p>";
     console.log("Result text generated:", resultText);
 }
 
-// Função auxiliar para obter a descrição de cada inteligência
 function getIntelligenceDescription(type) {
     if (type === "linguística") {
         return "Você tem uma habilidade especial para expressar ideias e usar palavras! Experimente criar histórias ou poemas que inspirem.<br>" +
@@ -378,7 +400,6 @@ if (document.getElementById("intelligence-selection") && window.location.pathnam
     loadIntelligenceSelection();
 }
 
-// Desativa temporariamente o script do Cloudflare para teste local
 if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
     console.log("Desativando script do Cloudflare para ambiente local.");
     const scripts = document.getElementsByTagName('script');
@@ -390,17 +411,13 @@ if (window.location.hostname === "127.0.0.1" || window.location.hostname === "lo
     }
 }
 
-// Nova função para copiar a descrição do tutorial
 function copyDescription(button) {
-    // Encontra o elemento pai .tutorial-description
     const tutorialDescription = button.closest('.tutorial-description');
-    // Pega apenas o texto dos parágrafos (<p>) e listas (<ul>)
     const descriptionElements = tutorialDescription.querySelectorAll('p, ul');
     const descriptionText = Array.from(descriptionElements)
         .map(element => element.innerText.trim())
         .join('\n\n');
 
-    // Usa a API de Clipboard para copiar o texto
     navigator.clipboard.writeText(descriptionText).then(() => {
         alert('Descrição copiada com sucesso!');
     }).catch(err => {
@@ -409,13 +426,11 @@ function copyDescription(button) {
     });
 }
 
-// Função para alternar o menu de acessibilidade
 function toggleAccessibilityMenu() {
     const menu = document.getElementById('accessibility-menu');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 
-// Função para gerenciar as opções de acessibilidade com Ativar/Desativar
 function toggleAccessibility(feature, button) {
     accessibilityStates[feature] = !accessibilityStates[feature];
     const state = accessibilityStates[feature];
@@ -438,16 +453,20 @@ function toggleAccessibility(feature, button) {
     }
 }
 
-// Função para aumentar o tamanho da fonte
 function increaseFontSize() {
     let currentSize = parseFloat(window.getComputedStyle(document.body).fontSize);
     document.body.style.fontSize = (currentSize + 2) + 'px';
 }
 
-// Função para diminuir o tamanho da fonte
 function decreaseFontSize() {
     let currentSize = parseFloat(window.getComputedStyle(document.body).fontSize);
-    if (currentSize > 16) { // Limite mínimo de 16px (tamanho base)
+    if (currentSize > 16) {
         document.body.style.fontSize = (currentSize - 2) + 'px';
     }
+}
+
+// Função para mostrar/esconder os botões extras no index.html
+function toggleExtras() {
+    const extraButtons = document.querySelector('.extra-buttons');
+    extraButtons.style.display = extraButtons.style.display === 'block' ? 'none' : 'block';
 }

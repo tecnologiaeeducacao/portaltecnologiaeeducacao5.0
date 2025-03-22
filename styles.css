@@ -19,6 +19,66 @@ header {
     background-color: rgba(45, 45, 68, 0.9);
 }
 
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-toggle {
+    background: #c2410c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    margin-right: 10px;
+}
+
+.nav-toggle:hover, .nav-toggle:focus {
+    background: #ea580c;
+    transform: scale(1.05);
+    outline: 2px solid #ffffff;
+}
+
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    background: rgba(45, 45, 68, 0.95);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.nav-menu a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1em;
+    transition: background 0.2s ease;
+}
+
+.nav-menu a:hover {
+    background: #5b21b6;
+    border-radius: 5px;
+}
+
 .container {
     flex: 1;
     padding: 15px;
@@ -30,14 +90,13 @@ header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Nova regra para links em modo texto dentro do .container, excluindo botões */
 .container a:not(.btn):not(.back-btn):not(.file-label-custom):not(.share-btn) {
-    color: #f97316; /* Laranja vibrante pra links de texto */
+    color: #f97316;
     text-decoration: underline;
 }
 
 .container a:not(.btn):not(.back-btn):not(.file-label-custom):not(.share-btn):hover {
-    color: #ffaa33; /* Tom mais claro no hover */
+    color: #ffaa33;
 }
 
 .btn {
@@ -92,20 +151,20 @@ nav {
 .inteligencias-list, .tutorial-list {
     list-style-type: none;
     padding: 0;
-    margin: 20px 0; /* Adicionado pra espaçar a lista verticalmente */
-    text-align: left; /* Justifica a lista à esquerda */
+    margin: 20px 0;
+    text-align: left;
 }
 
 .inteligencias-list li {
-    display: flex; /* Alinha ícone e texto horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    margin-bottom: 20px; /* Espaço entre os itens */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .inteligencias-list .intel-icon {
-    width: 24px; /* Mantido do original */
+    width: 24px;
     height: 24px;
-    margin-right: 15px; /* Aumentado de 10px pra 15px pra mais espaço */
+    margin-right: 15px;
     background: rgba(91, 33, 182, 0.8);
     padding: 3px;
     border-radius: 5px;
@@ -114,9 +173,9 @@ nav {
 }
 
 .inteligencias-list span {
-    flex: 1; /* O texto ocupa o espaço restante */
-    text-align: left; /* Garante alinhamento à esquerda dentro do span */
-    line-height: 1.5; /* Melhor legibilidade */
+    flex: 1;
+    text-align: left;
+    line-height: 1.5;
 }
 
 .tutorial-list {
@@ -223,7 +282,7 @@ nav {
     border-radius: 8px;
     border: 1px solid #3d3d5a;
     text-align: left;
-    display: block; /* Alterado para visível por padrão */
+    display: block;
 }
 
 .tutorial-description h4 {
@@ -361,7 +420,6 @@ nav {
     display: none;
 }
 
-/* Responsividade existente */
 @media (max-width: 768px) {
     .intelligence-selection {
         grid-template-columns: 1fr;
@@ -372,6 +430,19 @@ nav {
     .button-group {
         flex-direction: column;
         gap: 5px;
+    }
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-toggle {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .nav-menu {
+        top: 120px;
+        left: 10px;
+        width: 200px;
     }
 }
 
@@ -425,49 +496,45 @@ nav {
     .intel-option span { font-size: 12px; }
 }
 
-/* Nova regra adicionada para o banner em telas até 480px (alteração da primeira solução) */
 @media (max-width: 480px) {
     .banner {
-        width: 100%; /* Garante que o banner ocupe 100% da largura */
-        height: auto; /* Ajusta a altura proporcionalmente */
-        max-height: 200px; /* Limita a altura máxima para evitar overflow */
-        object-fit: contain; /* Mantém a proporção da imagem */
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
     }
 }
 
-/* Nova regra adicionada para telas até 320px (alteração da segunda solução para 250px) */
 @media (max-width: 320px) {
     .banner {
-        width: 100%; /* Garante que o banner ocupe 100% da largura */
-        height: auto; /* Ajusta a altura proporcionalmente */
-        max-height: 150px; /* Reduz ainda mais a altura para telas muito pequenas */
-        object-fit: contain; /* Mantém a proporção */
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: contain;
     }
     .container {
-        padding: 5px; /* Reduz o padding para economizar espaço */
-        margin: 10px auto; /* Reduz a margem para telas pequenas */
+        padding: 5px;
+        margin: 10px auto;
     }
     h1 {
-        font-size: 1.5em; /* Reduz o tamanho do título */
+        font-size: 1.5em;
     }
     nav {
-        gap: 5px; /* Reduz o espaço entre os botões */
+        gap: 5px;
     }
     .btn, .back-btn {
-        font-size: 0.9em; /* Reduz o tamanho dos botões */
-        padding: 6px 10px; /* Reduz o padding dos botões */
+        font-size: 0.9em;
+        padding: 6px 10px;
     }
 }
 
-/* Ajuste adicional para garantir que o banner não desconfigure (alteração da primeira solução) */
 .banner {
-    width: 100%; /* Garante responsividade base */
-    height: auto; /* Ajusta altura automaticamente */
-    display: block; /* Remove espaçamentos indesejados */
-    margin: 0 auto; /* Centraliza o banner */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-/* Novo estilo para a frase introdutória do botão "Ver em Texto" */
 .text-link-intro {
     margin: 10px 0;
     font-size: 1em;
@@ -480,7 +547,6 @@ nav {
     text-align: center;
 }
 
-/* Estilos para o botão de acessibilidade e menu */
 .accessibility-btn {
     position: fixed;
     top: 20px;
@@ -602,7 +668,6 @@ footer a:hover {
     color: #ea580c;
 }
 
-/* Responsividade ajustada para manter o botão no canto superior direito */
 @media (max-width: 600px) {
     .accessibility-btn {
         width: 40px;
@@ -618,59 +683,57 @@ footer a:hover {
     }
 }
 
-/* Ajustes pra deixar o texto mais fluido em tutoriais-texto */
 .tutorial-item p {
-    margin-bottom: 20px; /* Aumenta o espaço abaixo dos parágrafos (era 5px) */
-    line-height: 1.8; /* Aumenta a altura da linha pra mais respiro (era 1.5) */
+    margin-bottom: 20px;
+    line-height: 1.8;
 }
 
 .tutorial-item ol {
-    margin: 20px 0; /* Aumenta o espaço acima e abaixo da lista numerada (era 8px) */
-    padding-left: 25px; /* Aumenta o recuo pra mais clareza (era 18px) */
+    margin: 20px 0;
+    padding-left: 25px;
 }
 
 .tutorial-item ol li {
-    margin-bottom: 15px; /* Aumenta o espaço entre itens da lista numerada (era 4px) */
+    margin-bottom: 15px;
 }
 
 .tutorial-item ul {
-    margin: 15px 0; /* Aumenta o espaço acima e abaixo da sublista (era 8px) */
-    padding-left: 30px; /* Aumenta o recuo pra diferenciar da lista principal (era 18px) */
+    margin: 15px 0;
+    padding-left: 30px;
 }
 
 .tutorial-item ul li {
-    margin-bottom: 10px; /* Aumenta o espaço entre itens da sublista (era 4px) */
+    margin-bottom: 10px;
 }
 
 .info-box {
-    margin: 20px 0; /* Aumenta o espaço acima e abaixo da caixa de info (não tinha antes) */
-    padding: 15px; /* Aumenta o padding interno pra mais conforto (era 12px) */
+    margin: 20px 0;
+    padding: 15px;
 }
 
 .info-box p {
-    margin-bottom: 15px; /* Aumenta o espaço entre parágrafos na caixa (era 5px) */
+    margin-bottom: 15px;
 }
-/* Ajustes pra nav do index.html */
+
 .steps-nav {
     display: flex;
-    flex-direction: column; /* Alinha os botões em coluna */
-    align-items: center; /* Centraliza os botões horizontalmente */
-    gap: 15px; /* Aumenta o espaço entre os botões (era 10px) */
-    max-width: 400px; /* Limita a largura pra não ficar muito largo */
-    margin: 0 auto; /* Centraliza o nav na página */
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .step-btn, .extra-btn {
-    width: 100%; /* Faz todos os botões terem a mesma largura */
-    max-width: 350px; /* Define um tamanho fixo máximo */
-    text-align: center; /* Centraliza o texto dentro dos botões */
-    padding: 12px 20px; /* Ajusta o padding pra consistência */
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
 }
 
-/* Mantém os estilos originais dos botões */
 .step-btn {
-    background: #c2410c; /* Cor dos passos */
+    background: #c2410c;
     box-shadow: 0 4px 12px rgba(194, 65, 12, 0.4);
 }
 
@@ -681,7 +744,7 @@ footer a:hover {
 }
 
 .extra-btn {
-    background: #5b21b6; /* Cor dos extras */
+    background: #5b21b6;
     box-shadow: 0 4px 12px rgba(91, 33, 182, 0.4);
 }
 
@@ -691,14 +754,18 @@ footer a:hover {
     outline: 2px solid #ffffff;
 }
 
-/* Responsividade pra telas menores */
 @media (max-width: 600px) {
     .steps-nav {
-        gap: 10px; /* Reduz o espaço entre botões */
+        gap: 10px;
     }
     .step-btn, .extra-btn {
-        max-width: 300px; /* Reduz o tamanho máximo dos botões */
-        font-size: 1em; /* Ajusta o tamanho da fonte */
-        padding: 10px 15px; /* Reduz o padding */
+        max-width: 300px;
+        font-size: 1em;
+        padding: 10px 15px;
     }
-} 
+}
+
+/* Estilo para os botões extras no index.html */
+.extra-buttons {
+    display: none; /* Oculta por padrão */
+}

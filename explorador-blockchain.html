@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador Blockchain – Descubra Suas Possibilidades</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .section { margin: 20px 0; padding: 15px; background: rgba(45, 45, 68, 0.9); border-radius: 8px; }
+        .content { margin: 10px 0; }
+        .block-item { padding: 10px; background: #c2410c; cursor: pointer; margin: 5px; border-radius: 5px; display: inline-block; }
+        .block-item.active { background: #f97316; }
+        .reflection { margin-top: 10px; display: none; }
+        .reflection p { line-height: 1.6; }
+        .result-section { display: none; margin-top: 20px; background: rgba(30, 41, 59, 0.95); padding: 15px; border-radius: 8px; }
+        .panel { margin-top: 15px; }
+        .panel h4 { color: #f97316; }
+        textarea { width: 100%; height: 100px; margin: 5px 0; border-radius: 5px; padding: 10px; box-sizing: border-box; }
+        @media (max-width: 600px) {
+            .block-item { width: 100%; box-sizing: border-box; }
+            textarea { height: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Explorador Blockchain – Descubra Suas Possibilidades</h2>
+        <p>Mergulhe no universo do blockchain! Clique em cada vertente, explore explicações e reflita pra criar seu Painel de Ideias Blockchain personalizado, inspirado no artigo <em>Blockchain: Tecnologia, Aplicações e Desafios para o Bem Comum</em>, publicado na revista <em>Querubim</em> (<a href="https://periodicos.uff.br/querubim/issue/view/3103/1026" target="_blank">acesse aqui</a>).</p>
+
+        <!-- Seção: Vertentes do Blockchain -->
+        <div class="section" id="block-section">
+            <h3>Vertentes do Blockchain</h3>
+            <p>Clique em cada vertente pra descobrir como ela funciona e imaginar usos práticos na sua vida ou no mundo.</p>
+            <div class="content">
+                <div class="block-item" data-block="criptomoedas">Criptomoedas</div>
+                <div class="block-item" data-block="contratos">Contratos Inteligentes</div>
+                <div class="block-item" data-block="nfts">NFTs</div>
+                <div class="block-item" data-block="defi">DeFi</div>
+                <div class="block-item" data-block="identidade">Identidade Digital</div>
+            </div>
+            <div class="reflection" id="block-reflection">
+                <p id="block-text"></p>
+                <textarea id="block-response" placeholder="Como você usaria essa vertente na sua vida, trabalho ou educação?"></textarea>
+                <button class="btn" onclick="saveBlockReflection()">Salvar Reflexão</button>
+            </div>
+        </div>
+
+        <!-- Seção: Aplicação -->
+        <div class="section" id="apply-section">
+            <h3>Sua Ideia com Blockchain</h3>
+            <p>Escolha uma vertente e crie uma solução inovadora pra um problema real.</p>
+            <div class="content">
+                <select id="apply-block">
+                    <option value="">Escolha uma vertente</option>
+                    <option value="criptomoedas">Criptomoedas</option>
+                    <option value="contratos">Contratos Inteligentes</option>
+                    <option value="nfts">NFTs</option>
+                    <option value="defi">DeFi</option>
+                    <option value="identidade">Identidade Digital</option>
+                </select>
+                <textarea id="apply-response" placeholder="Descreva sua ideia: como essa vertente pode resolver algo ou melhorar o mundo?"></textarea>
+                <button class="btn" onclick="saveApplication()">Salvar Ideia</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="finishExploration()">Finalizar Exploração</button>
+        <div class="result-section" id="result">
+            <h3>Seu Painel de Ideias Blockchain</h3>
+            <div id="panel-blocks" class="panel"></div>
+            <div id="panel-apply" class="panel"></div>
+            <button class="share-btn" onclick="sharePanel()">Compartilhar</button>
+            <button class="btn" onclick="window.location.href='index.html'">Voltar ao Início</button>
+        </div>
+
+        <!-- Botão de Acessibilidade -->
+        <button class="accessibility-btn" aria-label="Abrir menu de acessibilidade" onclick="toggleAccessibilityMenu()">♿</button>
+        <div class="accessibility-menu" id="accessibility-menu">
+            <ul>
+                <li><button onclick="toggleAccessibility('high-contrast', this)">Alto Contraste (Ativar/Desativar)</button></li>
+                <li><button onclick="toggleAccessibility('large-text', this)">Fonte Legível (Ativar/Desativar)</button></li>
+                <li><button onclick="increaseFontSize()">Aumentar Letra</button></li>
+                <li><button onclick="decreaseFontSize()">Diminuir Letra</button></li>
+                <li><button onclick="toggleAccessibility('distraction-free', this)">Tirar Distrações (Ativar/Desativar)</button></li>
+                <li><button onclick="toggleAccessibility('text-to-speech', this)">Leitura em Voz Alta (Ativar/Desativar)</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let userProfile = { blocks: {}, application: '' };
+
+        // Vertentes
+        const blockItems = document.querySelectorAll('.block-item');
+        blockItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const block = item.getAttribute('data-block');
+                item.classList.add('active');
+                showBlockReflection(block);
+            });
+        });
+
+        function showBlockReflection(block) {
+            const texts = {
+                criptomoedas: `Criptomoedas como Bitcoin e Ethereum são moedas digitais descentralizadas, criadas em blockchains públicos. Elas permitem transações rápidas e globais sem bancos – pense no Bitcoin, lançado em 2008 por Satoshi Nakamoto, ou no Ethereum, que suporta apps. Na educação, a BitDegree usa tokens pra premiar alunos por cursos concluídos. Fora dela, podem financiar projetos ou incluir pessoas sem acesso bancário, como em áreas remotas do Brasil.`,
+                contratos: `Contratos inteligentes são códigos no blockchain que executam acordos automaticamente quando condições são atendidas – sem intermediários! No Ethereum, eles usam Solidity pra tudo, desde matrículas automáticas na escola (ex.: "pague e receba o certificado") até aluguéis (ex.: "libere o pagamento ao entrar"). Eles cortam burocracia e aumentam a confiança em negócios ou educação.`,
+                nfts: `NFTs (Tokens Não Fungíveis) autenticam itens digitais únicos – arte, música, certificados. Na educação, o MIT usa Blockcerts pra emitir diplomas em blockchain desde 2017. Na arte, plataformas como OpenSea vendem obras digitais. Imagine criar um NFT de um desenho seu ou um badge escolar – é propriedade digital que ninguém falsifica!`,
+                defi: `DeFi (Finanças Descentralizadas) usa blockchain pra oferecer serviços financeiros sem bancos – empréstimos, investimentos, tudo via contratos inteligentes. MakerDAO cria o Dai, uma moeda estável atrelada ao dólar. Na educação, poderia financiar cursos via crowdfunding descentralizado. É finança aberta pra quem tem internet!`,
+                identidade: `Identidade digital no blockchain cria registros seguros e portáteis – como um RG imutável. A Guardtime (KIKS.ee) na Estônia autentica documentos assim. Na educação, pode guardar seu histórico escolar pra sempre. No mundo, protege contra roubo de identidade e dá acesso a serviços em áreas sem burocracia oficial.`
+            };
+            document.getElementById('block-text').textContent = texts[block];
+            document.getElementById('block-reflection').style.display = 'block';
+            document.getElementById('block-response').dataset.block = block;
+        }
+
+        function saveBlockReflection() {
+            const block = document.getElementById('block-response').dataset.block;
+            const response = document.getElementById('block-response').value;
+            if (response) {
+                userProfile.blocks[block] = response;
+                alert(`Reflexão salva! Você usaria ${block} assim: "${response}"`);
+                document.getElementById('block-reflection').style.display = 'none';
+                document.getElementById('block-response').value = '';
+            } else {
+                alert('Escreva algo antes de salvar!');
+            }
+        }
+
+        function saveApplication() {
+            const block = document.getElementById('apply-block').value;
+            const response = document.getElementById('apply-response').value;
+            if (block && response) {
+                userProfile.application = `Vertente: ${block} | Ideia: ${response}`;
+                alert(`Ideia salva! Sua solução: "${response}" com ${block}.`);
+                document.getElementById('apply-response').value = '';
+            } else {
+                alert('Escolha uma vertente e escreva sua ideia!');
+            }
+        }
+
+        function finishExploration() {
+            document.querySelector('.container > button').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+
+            let blockContent = '<h4>Vertentes Exploradas</h4>';
+            for (let block in userProfile.blocks) {
+                blockContent += `<p><strong>${block}:</strong> ${userProfile.blocks[block]}</p>`;
+            }
+            if (!Object.keys(userProfile.blocks).length) blockContent += '<p>Você ainda não explorou nenhuma vertente!</p>';
+
+            let applyContent = '<h4>Sua Ideia Blockchain</h4>';
+            applyContent += userProfile.application ? `<p>${userProfile.application}</p>` : '<p>Crie uma solução antes de finalizar!</p>';
+
+            document.getElementById('panel-blocks').innerHTML = blockContent;
+            document.getElementById('panel-apply').innerHTML = applyContent;
+        }
+
+        function sharePanel() {
+            const blocksText = Object.entries(userProfile.blocks).map(([block, resp]) => `${block}: ${resp}`).join('\n');
+            const applyText = userProfile.application || 'Nenhuma ideia criada ainda.';
+            const shareText = `Meu Painel de Ideias Blockchain\n\nVertentes Exploradas:\n${blocksText || 'Nenhuma'}\n\nIdeia Blockchain:\n${applyText}\n\nConstruído no Explorador Blockchain - Workshop Tecnologia e Educação 5.0`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meu Painel de Ideias Blockchain',
+                    text: shareText,
+                    url: window.location.href
+                }).catch(err => console.log('Erro ao compartilhar:', err));
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Painel copiado para a área de transferência! Cole onde quiser.');
+                }).catch(err => {
+                    alert('Erro ao copiar: ' + err);
+                });
+            }
+        }
+    </script>
+    <footer>
+        <p>Desenvolvido pela Equipe Santos | Contato: <a href="mailto:tecnologiaeeducacao@gmail.com">tecnologiaeeducacao@gmail.com</a></p>
+    </footer>
+</body>
+</html>
